@@ -1,0 +1,37 @@
+[project]
+name = "make-agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "openai>=2.38.0", #连ai# 当前缺少这一行
+    "tavily-python>=0.5.0", #实现联网搜索
+    "pydantic>=2.13.4", #结构化输出，作用：强制 AI 输出固定格式
+    "python-dotenv>=1.2.2", #管密钥，安全管理密钥（API Key 不泄露）
+    "requests>=2.34.2", #连网络，发网络请求（调用外部工具）
+    "chromadb>=1.5.9",
+    "sentence-transformers>=5.6.0",
+    "pymupdf>=1.27.2.3",
+    "tiktoken>=0.13.0",
+    "pdfplumber",
+    "pandas",
+    "paddleocr>=2.10.0",
+    "paddlepaddle>=3.3.1",
+    "opencv-python>=4.13.0.92",
+    "numpy>=2.4.6",
+    "torch>=2.12.1",
+    "albumentations<1.4",
+    "pytesseract>=0.3.13",
+]
+# 你发指令
+#    ↓
+# requests（联网）
+#    ↓
+# openai（问AI）
+#    ↓
+# pydantic（强制AI输出JSON）
+#    ↓
+# python-dotenv（保护Key）
+#    ↓
+# Agent执行任务
